@@ -20,7 +20,7 @@ namespace ATB.BackOffice.BeanAdvert.Domain
             var currentBeans = await this.beanAdvertReadModel.GetCurrentBeans(DateTime.UtcNow);
 
             if (currentBeans == null)
-                return DateStatus.Error;
+                return DateStatus.Free;
 
             if (date.Date < DateTime.UtcNow.Date)
                 return DateStatus.Past;
