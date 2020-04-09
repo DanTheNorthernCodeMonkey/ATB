@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>ATB.BackOffice</AssemblyName>
+        <RootNamespace>ATB.BackOffice</RootNamespace>
+        <PackageId>ATB.BackOffice</PackageId>
+        <Authors>ATB.BackOffice</Authors>
+        <Company>ATB.BackOffice</Company>
+        <Product>ATB.BackOffice</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ATB.Common\ATB.Common.csproj" />
+    </ItemGroup>
+
+
+</Project>
