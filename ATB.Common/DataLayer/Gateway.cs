@@ -5,14 +5,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Npgsql;
 
 namespace ATB.Common.DataLayer
 {
     public class Gateway : IGateway
     {
-        private readonly ILogger<Gateway> logger;
         private readonly IConfiguration config;
         private const string AtbKey = "atb";
 
@@ -51,7 +49,6 @@ namespace ATB.Common.DataLayer
             }
             catch (Exception ex)
             {
-                this.logger.Log(LogLevel.Error, ex, "Data layer failure");
                 return default;
             }
         }
