@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import {BeanInfo} from "./BeanInfo";
 import Spinner from "react-bootstrap/Spinner";
+import './bean.css';
 
 export class BeanAdvert extends React.Component {
 
@@ -68,10 +69,10 @@ export class BeanAdvert extends React.Component {
                 }
                 {
                     !this.state.loading && this.state.success && this.state.beanAdvert.beanName != null &&
-                    <div onClick={this.setBeanInfoShow}>
-                        <p>Bean of the day</p>
-                        <p>{this.state.beanAdvert.beanName}</p>
-                        <img src={this.state.beanAdvert.imageUri} alt="bean"/>s
+                    <div className="bean-wrapper" onClick={this.setBeanInfoShow}>
+                        <h1>Bean of the day</h1>
+                        <h3>{this.state.beanAdvert.beanName}</h3>
+                        <img src={process.env.PUBLIC_URL + this.state.beanAdvert.imageUri} alt="bean" className="bean-img"/>
                         {
                             this.state.showBeanInfo &&
                             <BeanInfo

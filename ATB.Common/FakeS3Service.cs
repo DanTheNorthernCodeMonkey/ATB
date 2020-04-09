@@ -12,7 +12,7 @@ namespace ATB.Common
         private const string NixDelimiter = "/";
         private const string WinDelimiter = "\\";
 
-        private static string Project => Environment.CurrentDirectory;
+        private static string project => Environment.CurrentDirectory;
 
         public async Task Upload(Guid id, string base64Image)
         {
@@ -35,12 +35,12 @@ namespace ATB.Common
 
             var frontOffice = string.Concat("ATB.FrontOffice", delimiter, "client", delimiter, "atb_fo", delimiter, "public", delimiter, "images", delimiter, id, Png);
             
-            return Project.Replace("ATB.BackOffice", frontOffice);
+            return project.Replace("ATB.BackOffice", frontOffice);
         }
 
         public string ImageUri(Guid id)
         {
-            return string.Concat("/public/images/", id, Png);
+            return string.Concat("images/", id, Png);
         }
     }
 }
