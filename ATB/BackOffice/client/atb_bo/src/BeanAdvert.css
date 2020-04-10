@@ -1,0 +1,40 @@
+.react-calendar {
+    margin: auto;
+}
+
+.banner {
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.error {
+    background-color: #ff0000;
+}
+
+.success {
+    background-color: #228b22;
+}
+
+.nice-dates-navigation, .nice-dates-day {
+    color: #ffffff !important;
+}
+
+.calendar {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.nice-dates-day:before {
+    background-color: #287aff !important;
+}
+
+.-today {
+    font-weight: 1000!important;
+}
+
+.-highlight {
+    color: #ff0000 !important;
+    font-weight: 1000;
+}
