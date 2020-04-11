@@ -13,11 +13,11 @@ export class BeanAdvert extends React.Component {
             loading: true,
             showBeanInfo: false,
             beanAdvert: {
-                beanName: '',
+                beanName: null,
                 cost: 0.00,
-                aroma: '',
-                colour: '',
-                imageUrl: '',
+                aroma: null,
+                colour: null,
+                imageUrl: null,
                 success: false
             }
         };
@@ -33,13 +33,18 @@ export class BeanAdvert extends React.Component {
             .get('http://localhost:5000/BeanAdvert', {})
             .then(response => {
                 console.log(response);
+
                 if (response.status === 200) {
                     this.setState({ beanAdvert: response.data, success: true, loading: false });
+                }
+                else if (response.status === 204) {
+	                this.setState({ success: true, loading: false });
                 }
             })
             .catch(error => {
                 console.log(error);
-                this.setState({ success: false, loading: false })
+
+                this.setState({ success: false, loading: false });
             })
             .finally(() => {
                 this.props.loading(false);

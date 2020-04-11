@@ -27,7 +27,14 @@ export class BeanAdvertForm extends React.Component {
             image: null,
             date: enGB.date,
             uploadSuccess: undefined,
-            errors: {},
+            errors: {
+                errorCost:'',
+                errorName:'',
+                errorAroma:'',
+                errorColour:'',
+                errorImage:'',
+                errorDate:'',
+            },
             isActive: false,
             takenDates: []
         };
@@ -227,14 +234,24 @@ export class BeanAdvertForm extends React.Component {
                                     Cost £
                                 </Form.Label>
                                 <Form.Control name="cost" type="number" value={this.state.cost}
-                                    onChange={this.handleCost} />
+                                    onChange={this.handleCost} required/>
                             </Col>
                             <Col>
                                 <Form.Label>
                                     Name
                                 </Form.Label>
-                                <Form.Control name="name" type="text" value={this.state.name}
-                                    onChange={this.handleChange} />
+                                <Form.Control 
+                                name="name" 
+                                type="text" 
+                                value={this.state.name}
+                                    onChange={this.handleChange} 
+                                    isValid={!this.state.errors.errorName}
+                                    feedback={this.state.errors.errorName}
+                                    onBlur={() => {
+                                        this.setState({
+                                            errorPassword: validateField('name', this.state.name) })
+                                        }}
+                                    />
                             </Col>
                         </Row>
                         <Row>
@@ -243,14 +260,14 @@ export class BeanAdvertForm extends React.Component {
                                     Aroma
                                 </Form.Label>
                                 <Form.Control name="aroma" type="text" value={this.state.aroma}
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleChange} required/>
                             </Col>
                             <Col>
                                 <Form.Label>
                                     Colour
                                 </Form.Label>
                                 <Form.Control name="colour" type="text" value={this.state.colour}
-                                    onChange={this.handleChange} />
+                                    onChange={this.handleChange} required/>
                             </Col>
                         </Row>
 
@@ -266,7 +283,8 @@ export class BeanAdvertForm extends React.Component {
                                         onDateChange={this.handleCalendar}
                                         date={this.state.date}
                                         modifiers={modifiers}
-                                        modifiersClassNames={modifiersClassNames} />
+                                        modifiersClassNames={modifiersClassNames} 
+                                        required/>
                                 </div>
                             </Col>
                         </Row>
@@ -276,7 +294,7 @@ export class BeanAdvertForm extends React.Component {
                                     Image
                                 </Form.Label>
                                 <div className="file-upload mb-4 ">
-                                    <input name="image" type="file" onChange={this.handleFile} />
+                                    <input name="image" type="file" onChange={this.handleFile} required/>
                                 </div>
                             </Col>
                         </Row>

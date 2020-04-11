@@ -22,7 +22,7 @@ namespace ATB.FrontOffice.Domain
         {
             var beanOfTheDay = await this.beanReadModel.GetBeanFor(DateTime.UtcNow.Date);
 
-            if (beanOfTheDay.Status == ExecutionStatus.Fail)
+            if (beanOfTheDay.Status != ExecutionStatus.Success)
 	            return beanOfTheDay;
 
             beanOfTheDay.Data.ImageUri = fakeS3Service.ImageUri(beanOfTheDay.Data.ImageId);
