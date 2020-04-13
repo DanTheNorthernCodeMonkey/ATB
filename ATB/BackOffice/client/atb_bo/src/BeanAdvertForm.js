@@ -124,14 +124,15 @@ export class BeanAdvertForm extends React.Component {
                 name: '',
                 aroma: '',
                 colour: '',
-                image: null,
-                date: null
+                date: null,
+                image: this.state.form.image
             };
             
             this.setState({ 
                 form: form,
-                dateStatus: response.dateStatus,
+                dateStatus: response.data.dateStatus,
                 takenDates: takenDates,
+                uploadSuccess: true
             });
         }
 
@@ -145,7 +146,7 @@ export class BeanAdvertForm extends React.Component {
     handleCost = ({target}) => {
          
         let cost = parseFloat(target.value);
-        this.setFormState('cost', cost.value);
+        this.setFormState('cost', cost);
     };
 
     handleFile = event => {
