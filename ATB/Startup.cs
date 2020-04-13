@@ -14,64 +14,64 @@ using Microsoft.Extensions.Hosting;
 
 namespace ATB
 {
-    public class Startup
-    {
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-        
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+	public class Startup
+	{
+		readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-        public IConfiguration Configuration { get; }
+		public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
+		public IConfiguration Configuration { get; }
 
-            services.AddScoped<IBeanAdvertCommand, BeanAdvertCommand>();
-            services.AddScoped<IBeanAdvertManager, BeanAdvertManager>();
-            services.AddScoped<IBeanAdvertRepository,BeanAdvertRepository>();
-            services.AddScoped<IBeanOfTheDayQuery, BeanOfTheDayQuery>();
+		// This method gets called by the runtime. Use this method to add services to the container.
+		public void ConfigureServices(IServiceCollection services)
+		{
+			services.AddControllers();
 
-            services.AddScoped<IBeanAdvertReadModel, BeanAdvertReadModel>();
-            services.AddTransient<IGateway, Gateway>();
-            services.AddTransient<IFakeS3Service, FakeS3Service>();
+			services.AddScoped<IBeanAdvertCommand, BeanAdvertCommand>();
+			services.AddScoped<IBeanAdvertManager, BeanAdvertManager>();
+			services.AddScoped<IBeanAdvertRepository, BeanAdvertRepository>();
+			services.AddScoped<IBeanOfTheDayQuery, BeanOfTheDayQuery>();
 
-            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+			services.AddScoped<IBeanAdvertReadModel, BeanAdvertReadModel>();
+			services.AddTransient<IGateway, Gateway>();
+			services.AddTransient<IFakeS3Service, FakeS3Service>();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                    builder =>
-                        builder.WithOrigins(
-		                        "http://localhost:3000",
-		                        "http://localhost:3001",
-		                        "http://localhost:3002",
-		                        "http://localhost:3004",
-		                        "http://localhost:3005",
-		                        "http://localhost:3006")
-                            .AllowAnyMethod()
-                            .AllowAnyHeader());
-            });
-        }
+			Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            
-            app.UseRouting();
+			services.AddCors(options =>
+			{
+				options.AddPolicy(MyAllowSpecificOrigins,
+					builder =>
+						builder.WithOrigins(
+								"http://localhost:3000",
+								"http://localhost:3001",
+								"http://localhost:3002",
+								"http://localhost:3004",
+								"http://localhost:3005",
+								"http://localhost:3006")
+							.AllowAnyMethod()
+							.AllowAnyHeader());
+			});
+		}
 
-            app.UseCors(MyAllowSpecificOrigins);
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		{
+			if (env.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+			}
 
-            app.UseAuthorization();
+			app.UseRouting();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-        }
-    }
+			app.UseCors(MyAllowSpecificOrigins);
+
+			app.UseAuthorization();
+
+			app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+		}
+	}
 }

@@ -5,8 +5,8 @@ using ATB.Infrastructure;
 
 namespace ATB.FrontOffice.Domain
 {
-    public interface IBeanOfTheDayQuery
-    {
-	    Task<ExecutionResult<BeanAdvertProjection>> GetBeanOfTheDay();
-    }
+	public interface IBeanOfTheDayQuery
+	{
+		Task<ExecutionResult<BeanAdvertProjection>> GetBeanOfTheDay();
+	}
 }

@@ -5,8 +5,8 @@ using ATB.Infrastructure;
 
 namespace ATB.BackOffice.Domain
 {
-    public interface IBeanAdvertCommand
-    {
-	    Task<ExecutionStatus> StoreBean(BeanAdvertModel model);
-    }
+	public interface IBeanAdvertCommand
+	{
+		Task<ExecutionStatus> StoreBean(BeanAdvertModel model);
+	}
 }
