@@ -20,6 +20,9 @@
 ### Run
 * Double click or run in a bash terimal run_api.sh bash script in /scripts
     * Alternatively run from your IDE
+    * Kill the API with:
+    * netstat -ano | findstr :5000
+    * taskkill /PID typeyourPIDhere /F
 * Double click or run in a bash terimal run_clients.sh bash script in /scripts
     * Alternatively run yarn/npm start in each clients directory within a shell.
 

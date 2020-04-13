@@ -1,12 +1,18 @@
 #!/bin/bash
 
-cd ../
+cd "$(dirname $(realpath $0))/";
+echo Changing directory to solution root
 
-cd "$(dirname $(realpath $0))/ATB/BackOffice/client/atb_bo/";
+cd ../
+pwd
+
+cd "ATB/BackOffice/client/atb_bo/";
+pwd
 
 yarn start &
 
-cd "$(dirname $(realpath $0))/ATB/FrontOffice/client/atb_fo/";
+cd "../../../../ATB/FrontOffice/client/atb_fo/";
+pwd
 
 yarn start &
 

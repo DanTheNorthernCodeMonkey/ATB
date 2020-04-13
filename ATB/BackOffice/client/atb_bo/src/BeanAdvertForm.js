@@ -22,12 +22,12 @@ export class BeanAdvertForm extends React.Component {
 
         this.state = {
             form: {
-                cost: 12.00,
-                name: 'Best Bean',
-                aroma: 'Sweet',
-                colour: 'Black',
+                cost: null,
+                name: null,
+                aroma: null,
+                colour: null,
                 image: null,
-                date: enGB.date,
+                date: null,
             },
             uploadSuccess: undefined,
             errors: {
@@ -118,16 +118,20 @@ export class BeanAdvertForm extends React.Component {
         }
 
         if (response.status === 200) {
-            this.setState({
-                cost: 0.00,
+            
+            let form = {
+                cost: '',
                 name: '',
                 aroma: '',
                 colour: '',
-                image: undefined,
-                uploadSuccess: true,
+                image: null,
+                date: null
+            };
+            
+            this.setState({ 
+                form: form,
                 dateStatus: response.dateStatus,
                 takenDates: takenDates,
-                date: enGB.date
             });
         }
 
@@ -138,8 +142,9 @@ export class BeanAdvertForm extends React.Component {
         this.setFormState([target.name], target.value);
     };
 
-    handleCost = (costFormValue) => {
-        let cost = parseFloat(costFormValue);
+    handleCost = ({target}) => {
+         
+        let cost = parseFloat(target.value);
         this.setFormState('cost', cost.value);
     };
 

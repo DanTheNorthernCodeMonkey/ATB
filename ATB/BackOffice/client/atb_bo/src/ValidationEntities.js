@@ -2,6 +2,7 @@ const validation = {
     cost: {
         presence: {
             allowEmpty: false,
+            message: '^Please enter a cost'
         },
         numericality: {
             message: '^Please enter a valid cost'
@@ -47,7 +48,7 @@ const validation = {
     colour: {
         presence: {
             allowEmpty: false,
-            message: '^Please select a colour'
+            message: '^Please enter a colour'
         }
     },
 };

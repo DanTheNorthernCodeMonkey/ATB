@@ -21,8 +21,9 @@ echo Installing dependencies for back office client
 yarn install &&
 
 echo Changing directory front office client
-pwd
+
 cd "../../../../ATB/FrontOffice/client/atb_fo/";
+pwd
 
 echo Installing dependencies for front office client
 
