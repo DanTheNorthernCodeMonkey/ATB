@@ -4,6 +4,7 @@
 * .NET Core 3.1
 * node, npm/yarn
 * Docker or postgreSQL server
+* Bash (if you have git you will have bash)
 
 ## Setup
 
@@ -20,15 +21,11 @@
 * Double click or run in a bash terimal run_api.sh bash script in /scripts
     * Alternatively run from your IDE
 * Double click or run in a bash terimal run_clients.sh bash script in /scripts
+    * Alternatively run yarn/npm start in each clients directory within a shell.
 
 ## TODO / further iterations:
 
-* Front/Back End Validation
 * Mass upload - CSV upload
-* Show dates that are aleady taken
-    * Call onComponentMount
-    * Return collection of dates taken
-    * Update calendar showing dates taken
-    * Validate against chosen dates
 * Integration test suite
 * More unit tests
+* Authentication here is implied, I haven't implemented it as it would be noise for the actual test.

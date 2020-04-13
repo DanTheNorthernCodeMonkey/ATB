@@ -12,7 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		scripts\atb.sql = scripts\atb.sql
 		scripts\build.sh = scripts\build.sh
 		LICENSE = LICENSE
-		posgreSQL_manual_setup.md = posgreSQL_manual_setup.md
 		scripts\postgreSQL_automated_setup.sh = scripts\postgreSQL_automated_setup.sh
 		README.md = README.md
 		scripts\run_api.sh = scripts\run_api.sh
