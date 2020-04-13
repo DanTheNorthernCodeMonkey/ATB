@@ -7,4 +7,6 @@ cd ../
 
 dotnet run --project ./ATB/ATB.csproj &
 
+echo Running API on localhost:5000, this will take a few seconds;
+
 $SHELL

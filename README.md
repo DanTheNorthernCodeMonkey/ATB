@@ -23,8 +23,11 @@
     * Kill the API with:
     * netstat -ano | findstr :5000
     * taskkill /PID typeyourPIDhere /F
+* API runs on 5000 - HTTP - 5001 HTTPS
 * Double click or run in a bash terimal run_clients.sh bash script in /scripts
     * Alternatively run yarn/npm start in each clients directory within a shell.
+	* Back office runs on 3000
+	* Front office runs on 3001
 
 ## TODO / further iterations:
 
