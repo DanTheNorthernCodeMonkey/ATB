@@ -76,4 +76,4 @@ packages/react-devtools-shell/dist
 
 beans/
 
-ATB/ATB/FrontOffice/client/atb_fo/public/images/
+ATB/ATB/FrontOffice/client/atb_fo/public/images/*
