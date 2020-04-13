@@ -9,12 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ATB.Tests", "ATB.Test\ATB.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C3AFB11-CBE3-44B4-8C26-EE461E967AFD}"
 	ProjectSection(SolutionItems) = preProject
+		scripts\atb.sql = scripts\atb.sql
+		scripts\build.sh = scripts\build.sh
 		LICENSE = LICENSE
 		posgreSQL_manual_setup.md = posgreSQL_manual_setup.md
-		postgreSQL_automated_setup.sh = postgreSQL_automated_setup.sh
+		scripts\postgreSQL_automated_setup.sh = scripts\postgreSQL_automated_setup.sh
 		README.md = README.md
-		run_api.sh = run_api.sh
-		run_clients.sh = run_clients.sh
+		scripts\run_api.sh = scripts\run_api.sh
+		scripts\run_clients.sh = scripts\run_clients.sh
 	EndProjectSection
 EndProject
 Global

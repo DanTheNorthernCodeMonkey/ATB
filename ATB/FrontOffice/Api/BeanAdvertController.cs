@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using ATB.FrontOffice.Domain;
 using ATB.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace ATB.FrontOffice.Api
 {
@@ -10,7 +9,6 @@ namespace ATB.FrontOffice.Api
     [Route("[controller]")]
     public class BeanAdvertController : ControllerBase
     {
-        private readonly ILogger<BeanAdvertController> _logger;
         private readonly IBeanOfTheDayQuery beanOfTheDayQuery;
 
         public BeanAdvertController(IBeanOfTheDayQuery beanReadModel)
@@ -24,6 +22,9 @@ namespace ATB.FrontOffice.Api
             var bean = await this.beanOfTheDayQuery.GetBeanOfTheDay();
 
             if (bean.Status == ExecutionStatus.Fail)
+	            return StatusCode(500);
+
+            if (bean.Status == ExecutionStatus.NoData)
                 return NoContent();
 
             return new OkObjectResult(bean.Data);

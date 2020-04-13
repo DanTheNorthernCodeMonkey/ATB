@@ -9,15 +9,17 @@
 
 ### PosgreSQL setup
 
-* Run the postgreSQL_setup.sh bash script.
+* Double click or run in a bash terimal postgreSQL_setup.sh bash script in /scripts
 * This will pull the posgreSQL docker image and set it up.
-* If you encounter issues please see <placeholder>
+* If you encounter issues with the docker container starting then please change the volume to another area
 
+### Build
+* Double click or run in a bash terimal build.sh bash script in /scripts
 
-* Compile the .Net Core Web projects
-* npm or yarn install the clients
-    * ATB.BackOffice\client\atb_bo
-    * ATB.FrontOffice\client\atb_fo
+### Run
+* Double click or run in a bash terimal run_api.sh bash script in /scripts
+    * Alternatively run from your IDE
+* Double click or run in a bash terimal run_clients.sh bash script in /scripts
 
 ## TODO / further iterations:
 

@@ -1,7 +1,7 @@
 import validate from 'validate.js'
 import validation from './ValidationEntities';
 
-export default function validateField(fieldName, value) {
+export function validateField(fieldName, value) {
 
     let formValues = {};
     let formFields = {};
@@ -17,4 +17,30 @@ export default function validateField(fieldName, value) {
     }
 
     return null;
-};
+}
+
+export function validateForm(form, errors) {
+    let result = {
+        isValid: true,
+        errors: errors
+    };
+    
+    for (const property in form) {
+    
+        if (Object.prototype.hasOwnProperty.call(form, property)) {
+            result.errors[property] = null;
+
+            let error = validateField(property, form[property]);
+
+            if (error) {
+                result.errors[property] = error;
+
+                if (result.isValid) {
+                    result.isValid = false;
+                }
+            }
+        }
+    }
+    
+    return result;
+}

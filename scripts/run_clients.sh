@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ../
+
 cd "$(dirname $(realpath $0))/ATB/BackOffice/client/atb_bo/";
 
 yarn start &

@@ -35,6 +35,14 @@
 }
 
 .-highlight {
-    color: #ff0000 !important;
+    color: #495057 !important;
     font-weight: 1000;
+}
+
+.invalid-custom {
+    display: block;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 100%;
+    color: #dc3545;
 }
